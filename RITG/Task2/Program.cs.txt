@@ -7,7 +7,7 @@ namespace RITG
     {
         static void Main(string[] args)
         {
-            Person[] people = {
+            Person[] people = { 
                 new Person("Ковалёв", "Нелли", "Натанович"),
                 new Person("Князев", "Иосиф", "Святославович"),
                 new Person("Калинин", "Севастьян", "Ростиславович") };
@@ -23,6 +23,7 @@ namespace RITG
                 Console.WriteLine($"Массив people типа {nameof(Person)} отсортирован по возрастанию (ascending)!");
             else
                 Console.WriteLine($"Массив people типа {nameof(Person)} НЕ отсортирован по возрастанию (ascending)!");
+
         }
     }
 }
