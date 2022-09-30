@@ -23,7 +23,6 @@ namespace RITG
                 Console.WriteLine($"Массив people типа {nameof(Person)} отсортирован по возрастанию (ascending)!");
             else
                 Console.WriteLine($"Массив people типа {nameof(Person)} НЕ отсортирован по возрастанию (ascending)!");
-
         }
     }
 }

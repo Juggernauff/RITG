@@ -1,0 +1,20 @@
+﻿using System;
+
+namespace RITG
+{
+    internal static class Program
+    {
+        static void Main(string[] args)
+        {
+            Task1.Person person = new Task1.Person("Danila");
+            Task1.Box box = new Task1.Box("Drawer", "A drawer that can store things.");
+            Task1.Box box1 = new Task1.Box("Box", "A small jewelry box.");
+            person.GetInfo(box);
+            Console.WriteLine();
+            person.CheckItems(box);
+            person.PutItem(box, box1);
+            Console.WriteLine();
+            person.CheckItems(box);
+        }
+    }
+}
