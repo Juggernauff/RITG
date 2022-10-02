@@ -6,15 +6,22 @@ namespace RITG
     {
         static void Main(string[] args)
         {
-            Task1.Person person = new Task1.Person("Danila");
-            Task1.Box box = new Task1.Box("Drawer", "A drawer that can store things.");
-            Task1.Box box1 = new Task1.Box("Box", "A small jewelry box.");
-            person.GetInfo(box);
+            Task3.Cow cow1 = new Task3.Cow();
+            cow1.Sound();
             Console.WriteLine();
-            person.CheckItems(box);
-            person.PutItem(box, box1);
+            Task3.Cow cow2 = new Task3.Cow("Бурка");
+            cow2.Sound();
             Console.WriteLine();
-            person.CheckItems(box);
+            Task3.Herbivore cow3 = new Task3.Cow();
+            cow3.Sound();
+            Console.WriteLine();
+            Task3.Tiger tiger1 = new Task3.Tiger(10);
+            tiger1.Attack();
+            tiger1.Sound();
+            Console.WriteLine();
+            Task3.Predator tiger2 = new Task3.Tiger(11);
+            tiger2.Attack();
+            tiger2.Sound();
         }
     }
 }
