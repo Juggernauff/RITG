@@ -1,0 +1,7 @@
+﻿CONSTRAINT [FK_T2_T1] FOREIGN KEY ([T2_FK]) REFERENCES [dbo].[T1] ([T1_PK]) ON DELETE CASCADE
+																					  SET NULL
+																					  SET DEFAULT
+																			ON UPDATE CASCADE
+																					  SET NULL
+																					  SET DEFAULT
+																			ON INSERT (WITH TRIGGERS)
