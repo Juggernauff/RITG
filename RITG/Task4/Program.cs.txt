@@ -1,0 +1,14 @@
+﻿namespace RITG
+{
+    internal static class Program
+    {
+        static void Main(string[] args)
+        {
+            const string FILE_PATH = @"C:\Users\hodar\OneDrive\Рабочий стол\RITG\RITG\Task4\File.txt";
+            using (Task4.FileManager fileManager = new Task4.FileManager(FILE_PATH))
+            {
+                fileManager.FileRead();
+            }
+        }
+    }
+}
