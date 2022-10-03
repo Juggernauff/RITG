@@ -8,6 +8,9 @@
   <ItemGroup>
     <Folder Include="Databases\" />
     <Folder Include="Task5\" />
+    <Folder Include="Task10\" />
+    <Folder Include="Task8\" />
+    <Folder Include="Task6\" />
   </ItemGroup>
 
 </Project>
