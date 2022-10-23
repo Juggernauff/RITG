@@ -31,6 +31,7 @@ namespace TaskMVC.Controllers
         public IActionResult Create()
         {
             ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
+            ViewData["UserLogin"] = new SelectList(_context.Users, "Login", "Login");
             return View();
         }
 
@@ -39,6 +40,8 @@ namespace TaskMVC.Controllers
         //[ValidateAntiForgeryToken]
         public IActionResult Create(News news) // [Bind("Id,Title,Content,Published,UserId")] 
         {
+            news.User = _context.Users.FirstOrDefault(u => u.Login == User.Identity.Name);
+            news.UserId = news.User.Id;
             _context.Add(news);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
@@ -50,6 +53,7 @@ namespace TaskMVC.Controllers
         [Authorize(Policy = "Administrator")]
         public async Task<IActionResult> Edit(int? id)
         {
+            //int? id = _context.Users.FirstOrDefault(u => u.Login == User.Identity.Name).Id;
             if (id == null || _context.News == null)
             {
                 return NotFound();
@@ -90,8 +94,6 @@ namespace TaskMVC.Controllers
                 }
             }
             return RedirectToAction(nameof(Index));
-/*        ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", news.UserId);
-        return View(news);*/
         }
 
         // GET: News/Delete/5

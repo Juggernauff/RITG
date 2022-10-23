@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
@@ -36,10 +37,11 @@ namespace TaskMVC.Controllers
                     role = _db.Roles.FirstOrDefault(r => r.Id == user.RoleId || r.Equals(user.Role));
                     var claims = new List<Claim>();
                     claims.Add(new Claim(ClaimTypes.Role, role.Name));
+
+                    claims.Add(new Claim(ClaimTypes.Name, user.Login));
                     var claimIdentity = new ClaimsIdentity(claims, "Cookie");
                     var claimPrincipal = new ClaimsPrincipal(claimIdentity);
                     await HttpContext.SignInAsync("Cookie", claimPrincipal);
-
                     return Redirect("/Home/Index");
                 }
             }
@@ -49,6 +51,7 @@ namespace TaskMVC.Controllers
             }
             return View();
         }
+
         public IActionResult LogOff()
         {
             HttpContext.SignOutAsync("Cookie");

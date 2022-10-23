@@ -4,9 +4,10 @@ namespace TaskMVC.Models
 {
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Не указан Login")]
         public string Login { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Не указан пароль")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
     }
 }
